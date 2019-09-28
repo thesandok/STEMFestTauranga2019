@@ -1,10 +1,20 @@
 window.addEventListener('camera-init', (data) => {
-    console.log('camera-init', data);
-})
+});
 
 window.addEventListener('camera-error', (error) => {
-    console.log('camera-error', error);
-})
+});
+
+//simple event bridge to connect AFrame Events and main controller
+(function(w) {
+
+    w.STEMEventBridge = {
+        onMarkerFound: function () { },
+        markerFound: function (markerId) {
+            this.onMarkerFound(markerId);
+        }
+    };
+
+}(window));
 
 AFRAME.registerComponent('registerevents', {
     init: function () {
@@ -12,26 +22,47 @@ AFRAME.registerComponent('registerevents', {
 
         marker.addEventListener('markerFound', function() {
             var markerId = marker.id;
-            console.log('markerFound', markerId);
+            window.STEMEventBridge.markerFound(markerId);
         });
 
         marker.addEventListener('markerLost', function() {
-            var markerId = marker.id;
-            console.log('markerLost', markerId);
+            //nothing to do here
         });
     }
 });
 
+(function(w) {
+    w.STEMStorage = {
+        storeObject: function (o) {
+            w.localStorage.setItem("stemfest_storage", JSON.stringify(o));
+        },
+        getStoredObject: function () {
+            var result = JSON.parse(w.localStorage.getItem("stemfest_storage") || "{ }");
+            return result;
+        }
+    };
+}(window));
+
 //Main controller for slider
-(function(w, d) {
+(function(w, d, storageManager, eventBridge) {
 
     var sar = function () {
+
         this._configuration = {
             panelButton: 'pin',
             slider: 'slide-layer'
         };
 
         this._isCollapsed = true;
+
+        eventBridge.onMarkerFound = this._markerFound.bind(this);
+    };
+
+    sar.prototype._markerFound = function (markerId) {
+        var data = storageManager.getStoredObject();
+        data[markerId] = true;
+
+        storageManager.storeObject(data);
     };
 
     sar.prototype.init = function () {
@@ -53,7 +84,7 @@ AFRAME.registerComponent('registerevents', {
 
     w.StemFestAR = sar;
 
-}(window, document));
+}(window, document, STEMStorage, STEMEventBridge));
 
 //Object creation once page is loaded
 (function (w) {
