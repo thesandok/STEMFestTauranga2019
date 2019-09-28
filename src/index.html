@@ -45,6 +45,10 @@
             <a-asset-item id="helmet" src="models/helmet/DamagedHelmet.gltf"></a-asset-item>
         </a-assets>
 
+        <a-assets>
+            <a-asset-item id="oldcamera" src="models/camera/AntiqueCamera.gltf"></a-asset-item>
+        </a-assets>
+
         <a-marker type='pattern' url='markers/pattern-1.patt' id='marker-buggy' registerevents>
             <a-entity gltf-model="#buggymodel" scale="0.02 0.02 0.02"></a-entity>
         </a-marker>
@@ -59,6 +63,10 @@
 
         <a-marker type='pattern' url='markers/pattern-4.patt' id='marker-fish' registerevents>
             <a-entity gltf-model="#fish" scale="5 5 5"></a-entity>
+        </a-marker>
+
+        <a-marker type='pattern' url='markers/pattern-5.patt' id='marker-oldcamera' registerevents>
+            <a-entity gltf-model="#oldcamera" scale="0.5 0.5 0.5"></a-entity>
         </a-marker>
 
         <a-marker preset='kanji' id='marker-boombox' registerevents>
