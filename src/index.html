@@ -63,34 +63,53 @@
         </a-assets>
 
         <a-marker type='pattern' url='markers/pattern-1.patt' id='buggy' registerevents>
-            <a-entity gltf-model="#buggymodel" scale="0.02 0.02 0.02"></a-entity>
+            <a-entity gltf-model="#buggymodel" scale="0.02 0.02 0.02">
+                <a-light type="ambient" color="#555"></a-light>
+                <a-light type="point" color="white" position="0 5 0" intensity="1"></a-light>
+            </a-entity>
         </a-marker>
 
         <a-marker type='pattern' url='markers/pattern-2.patt' id='duck' registerevents>
-            <a-entity gltf-model="#duck" scale="0.5 0.5 0.5"></a-entity>
+            <a-entity gltf-model="#duck" scale="0.5 0.5 0.5">
+                <a-light type="ambient" color="#FFFFFF"></a-light>
+                <a-light type="point" color="white" position="5 5 0" intensity="0.5"></a-light>
+            </a-entity>
         </a-marker>
 
         <a-marker type='pattern' url='markers/pattern-3.patt' id='avo' registerevents>
-            <a-entity gltf-model="#avomodel" scale="50 50 50"></a-entity>
+            <a-entity gltf-model="#avomodel" scale="50 50 50">
+                <a-light type="ambient" color="#EEE"></a-light>
+            </a-entity>
         </a-marker>
 
         <a-marker type='pattern' url='markers/pattern-4.patt' id='fish' registerevents>
-            <a-entity gltf-model="#fish" scale="5 5 5"><!--a-light type="point" color="white" position="0 1 0" intensity="10"></a-light--></a-entity>
+            <a-entity gltf-model="#fish" scale="5 5 5">
+                <a-light type="point" color="white" position="0 1 0" intensity="10"></a-light>
+            </a-entity>
         </a-marker>
 
         <a-marker type='pattern' url='markers/pattern-5.patt' id='camera' registerevents>
-            <a-entity gltf-model="#oldcamera" scale="0.5 0.5 0.5"></a-entity>
+            <a-entity gltf-model="#oldcamera" scale="0.5 0.5 0.5">
+                <a-light type="ambient" color="#FFFFFF"></a-light>
+                <a-light type="point" color="white" position="5 5 0" intensity="1"></a-light>
+            </a-entity>
         </a-marker>
 
         <a-marker preset='kanji' id='boombox' registerevents>
-            <a-entity gltf-model="#boombox" scale="50 50 50"></a-entity>
+            <a-entity gltf-model="#boombox" scale="50 50 50">
+                <a-light type="ambient" color="#FFFFFF"></a-light>
+                <a-light type="point" color="white" position="5 5 0" intensity="3"></a-light>
+            </a-entity>
         </a-marker>
 
         <a-marker preset='hiro' id='helmet' registerevents>
-            <a-entity gltf-model="#helmet" scale="1 1 1"></a-entity>
+            <a-entity gltf-model="#helmet" scale="1 1 1">
+                <a-light type="ambient" color="#FFFFFF"></a-light>
+                <a-light type="point" color="white" position="5 5 0" intensity="3"></a-light>
+            </a-entity>
         </a-marker>
 
         <a-entity camera></a-entity>
-	</a-scene>    
+    </a-scene>    
 </body>
 </html>
