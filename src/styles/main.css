@@ -12,6 +12,7 @@ body {
     width: 250px;
     height: 100%;
     background-color: #cccccc;
+    background-image: url(/images/chestbackground.png);
 }
 
 .slide-layer .pin {
@@ -19,5 +20,40 @@ body {
     height: 50px;
     position: relative;
     left: 250px;
-    background-color: red;
+    background-color: #65de33;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    cursor: pointer;
+    background-image: url(/images/background.png);
+}
+
+.slide-layer .chest-header {
+    position: absolute;
+    top: 0;
+    height: 50px;
+    background-image: url(/images/chestheader.png);
+    width: 100%;
+    text-align: left;
+    line-height: 33pt;
+    font-size: 20pt;
+}
+
+.slide-layer .chest-header span{
+    padding-left: 10px;
+}
+
+.slide-layer .picture {
+    width: 100px;
+    height: 100px;
+}
+
+.slide-layer .picture.not-found {
+    -webkit-filter: saturate(0) grayscale(1) brightness(0);
+    filter: saturate(0) grayscale(1) brightness(0);
+}
+
+.slide-layer .treasure-container {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: calc(100vh - 50px);
 }

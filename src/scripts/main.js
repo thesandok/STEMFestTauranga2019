@@ -54,15 +54,23 @@ AFRAME.registerComponent('registerevents', {
         };
 
         this._isCollapsed = true;
-
         eventBridge.onMarkerFound = this._markerFound.bind(this);
+    };
+
+    sar.prototype._loadStash = function (stash) {
+        for (var p in stash) {
+            if (stash.hasOwnProperty(p)) {
+                d.getElementById('img-' + p).classList.remove('not-found');
+            }
+        }
     };
 
     sar.prototype._markerFound = function (markerId) {
         var data = storageManager.getStoredObject();
         data[markerId] = true;
-
         storageManager.storeObject(data);
+
+        this._loadStash(data);
     };
 
     sar.prototype.init = function () {
@@ -79,7 +87,8 @@ AFRAME.registerComponent('registerevents', {
 
             self._isCollapsed = !self._isCollapsed;
         });
-        
+
+        this._loadStash(storageManager.getStoredObject());
     };
 
     w.StemFestAR = sar;
