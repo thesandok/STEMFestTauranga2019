@@ -50,77 +50,97 @@
     <a-scene embedded vr-mode-ui="enabled: false" arjs='sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;'>
 
         <a-assets>
-            <a-asset-item id="avomodel" src="models/avo/Avocado.gltf"></a-asset-item>
-        </a-assets>
-
-        <a-assets>
-            <a-asset-item id="buggymodel" src="models/buggy/Buggy.gltf"></a-asset-item>
-        </a-assets>
-
-        <a-assets>
             <a-asset-item id="duck" src="models/duck/Duck.gltf"></a-asset-item>
         </a-assets>
 
         <a-assets>
-            <a-asset-item id="boombox" src="models/boombox/BoomBox.gltf"></a-asset-item>
+            <a-asset-item id="helmet2" src="models/helmet/helmet.glb"></a-asset-item>
         </a-assets>
 
         <a-assets>
-            <a-asset-item id="fish" src="models/fish/BarramundiFish.gltf"></a-asset-item>
+            <a-asset-item id="critter" src="models/critter/critter.glb"></a-asset-item>
         </a-assets>
 
         <a-assets>
-            <a-asset-item id="helmet" src="models/helmet/DamagedHelmet.gltf"></a-asset-item>
+            <a-asset-item id="mineblock" src="models/mineblock/block.glb"></a-asset-item>
         </a-assets>
 
         <a-assets>
-            <a-asset-item id="oldcamera" src="models/camera/AntiqueCamera.gltf"></a-asset-item>
+            <a-asset-item id="chihuahua" src="models/chihuahua/Chihuahua.glb"></a-asset-item>
         </a-assets>
 
-        <a-marker type='pattern' url='markers/pattern-1.patt' id='buggy' registerevents>
-            <a-entity gltf-model="#buggymodel" scale="0.02 0.02 0.02">
-                <a-light type="ambient" color="#555"></a-light>
-                <a-light type="point" color="white" position="0 5 0" intensity="1"></a-light>
+        <a-assets>
+            <a-asset-item id="rocket" src="models/stickrocket/stickrocket.glb"></a-asset-item>
+        </a-assets>
+
+        <a-marker type='pattern' url='markers/pattern-1.patt' id='helment' registerevents>
+            <a-entity gltf-model="#helmet2" scale="2 2 2" rotation="-90 0 0" position="0 0 2">
+                <a-light type="ambient" color="#FFF"></a-light>
             </a-entity>
         </a-marker>
 
         <a-marker type='pattern' url='markers/pattern-2.patt' id='duck' registerevents>
-            <a-entity gltf-model="#duck" scale="0.5 0.5 0.5">
-                <a-light type="ambient" color="#FFFFFF"></a-light>
-                <a-light type="point" color="white" position="5 5 0" intensity="0.5"></a-light>
-            </a-entity>
-        </a-marker>
-
-        <a-marker type='pattern' url='markers/pattern-3.patt' id='avo' registerevents>
-            <a-entity gltf-model="#avomodel" scale="50 50 50">
-                <a-light type="ambient" color="#EEE"></a-light>
-            </a-entity>
-        </a-marker>
-
-        <a-marker type='pattern' url='markers/pattern-4.patt' id='fish' registerevents>
-            <a-entity gltf-model="#fish" scale="5 5 5">
-                <a-light type="point" color="white" position="0 1 0" intensity="10"></a-light>
-            </a-entity>
-        </a-marker>
-
-        <a-marker type='pattern' url='markers/pattern-5.patt' id='camera' registerevents>
-            <a-entity gltf-model="#oldcamera" scale="0.5 0.5 0.5">
-                <a-light type="ambient" color="#FFFFFF"></a-light>
+            <a-entity gltf-model="#duck" scale="0.5 0.5 0.5" rotation="180 90 -90"
+                animation="property: rotation; to:-180 90 -90; dur: 5000; easing: linear; loop: true">
+                <a-light type="ambient" color="#555"></a-light>
                 <a-light type="point" color="white" position="5 5 0" intensity="1"></a-light>
             </a-entity>
         </a-marker>
 
-        <a-marker preset='kanji' id='boombox' registerevents>
-            <a-entity gltf-model="#boombox" scale="50 50 50">
-                <a-light type="ambient" color="#FFFFFF"></a-light>
-                <a-light type="point" color="white" position="5 5 0" intensity="3"></a-light>
+        <a-marker type='pattern' url='markers/pattern-3.patt' id='critter' registerevents>
+            <a-entity gltf-model="#critter" scale="20 20 20" rotation="-90 0 0">
+                <a-light type="ambient" color="#FFF"></a-light>
+                <a-light type="point" color="white" position="0 5 0" intensity="1"></a-light>
             </a-entity>
         </a-marker>
 
-        <a-marker preset='hiro' id='helmet' registerevents>
-            <a-entity gltf-model="#helmet" scale="1 1 1">
-                <a-light type="ambient" color="#FFFFFF"></a-light>
-                <a-light type="point" color="white" position="5 5 0" intensity="3"></a-light>
+        <a-marker type='pattern' url='markers/pattern-4.patt' id='mineblock' registerevents>
+            <a-entity gltf-model="#mineblock" scale="5 5 5" rotation="-90 0 0">
+                <a-light type="ambient" color="#FFF"></a-light>
+            </a-entity>
+        </a-marker>
+
+        <a-marker type='pattern' url='markers/pattern-5.patt' id='dog' registerevents>
+            <a-entity gltf-model="#chihuahua" scale="20 20 20" rotation="-90 0 0">
+                <a-light type="ambient" color="#FFF"></a-light>
+                <a-light type="point" color="white" position="0 5 0" intensity="1"></a-light>
+            </a-entity>
+        </a-marker>
+
+        <a-marker type='pattern' url='markers/pattern-6.patt' id='steve' registerevents>
+            <a-entity
+                obj-model="obj: url(models/minecraft/minecraft-steve.obj);
+                        mtl: url(models/minecraft/minecraft-steve.mtl)" 
+                    scale="0.2 0.2 0.2" rotation="180 90 -90"
+                    animation="property: rotation; to: -180 90 -90; dur: 5000; easing: linear; loop: true">
+                <a-light type="ambient" color="#FFF"></a-light>
+                <a-light type="point" color="white" position="0 5 0" intensity="1"></a-light>
+            </a-entity>
+        </a-marker>
+
+        <a-marker type='pattern' url='markers/pattern-7.patt' id='redfox' registerevents>
+            <a-entity
+                    obj-model="obj: url(models/redfox2/low-poly-fox-by-pixelmannen.obj);
+                                mtl: url(models/redfox2/low-poly-fox-by-pixelmannen.mtl)"
+                    scale="0.02 0.02 0.02"
+                    rotation="-90 0 0">
+                <a-light type="ambient" color="#FFF"></a-light>
+            </a-entity>
+        </a-marker>
+
+        <a-marker type='pattern' url='markers/pattern-8.patt' id='spaceshuttle' registerevents>
+            <a-entity
+                    obj-model="obj: url(models/spaceshuttle/space-shuttle-orbiter.obj);
+                                mtl: url(models/spaceshuttle/space-shuttle-orbiter.mtl)"
+                    scale="0.002 0.002 0.002"
+                    rotation="90 30 190">
+                <a-light type="ambient" color="#FFF"></a-light>
+            </a-entity>
+        </a-marker>
+
+        <a-marker type='pattern' url='markers/pattern-9.patt' id='stickrocket' registerevents>
+            <a-entity gltf-model="#rocket" scale="0.04 0.04 0.04" rotation="-90 0 0">
+                <a-light type="ambient" color="#FFF"></a-light>
             </a-entity>
         </a-marker>
 
