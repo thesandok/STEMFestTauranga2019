@@ -27,8 +27,8 @@ serialPort.on('open',function(){
         const serialData = data.toString();
         console.log(serialData);
         socketClients.forEach((item) => {
-            item.emit('noisture', { 
-                value: serialData 
+            item.emit('moisture', { 
+                value: serialData
             });
         });
     });
