@@ -6,7 +6,7 @@ class Game {
 
   connectSocket() {
     let socket = io();
-    socket.on("noisture", (data) => {
+    socket.on("moisture", (data) => {
       if (data.value !== "") {
         console.log(data);
       }
