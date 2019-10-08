@@ -26,15 +26,15 @@ void setup()
 
 void loop()
 {
-  Serial.print("Soil Moisture = ");
+  // Serial.print("Soil Moisture = ");
   //get soil moisture value from the function below and print it
   Serial.println(readSoil());
-  if (readSoil() < 420) {
-    Serial.print("Dry soil");
-  }
-  else {
-    Serial.print("Wet soil");
-  }
+  //if (readSoil() < 420) {
+    //Serial.print("Dry soil");
+  //}
+  //else {
+    //Serial.print("Wet soil");
+  //}
 
   //This 1 second timefrme is used so you can test the sensor and see it change in real-time.
   //For in-plant applications, you will want to take readings much less frequently.
@@ -43,12 +43,9 @@ void loop()
 //This is a function used to get the soil moisture content
 int readSoil()
 {
-
   digitalWrite(soilPower, HIGH);//turn D7 "On"
   delay(10);//wait 10 milliseconds
   val = analogRead(soilPin);//Read the SIG value form sensor
   digitalWrite(soilPower, LOW);//turn D7 "Off"
-  //return val;//send current moisture value
-  
-  Serial.println((String)first_distance + "," + (String)second_distance);
+  return val;//send current moisture value
 }
